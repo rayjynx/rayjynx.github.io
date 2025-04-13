@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="">About Me</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Welcome to my page.</h1>
+    </main>
+    <div class="para">
+        <p>Use the menus above to browse through the site.</p>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
