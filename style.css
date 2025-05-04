@@ -160,3 +160,186 @@ body{
     border-top: none;
   }
 }
+
+hr{
+  margin: 50px auto;
+}
+
+/* portfolio page */
+
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 1/1;
+}
+
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item-overlay h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.item-overlay p {
+  margin: 10px 0 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.1s;
+}
+
+/* Hover effects */
+.portfolio-item:hover .item-image {
+  transform: scale(1.05);
+}
+
+.portfolio-item:hover .item-overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover .item-overlay h3,
+.portfolio-item:hover .item-overlay p {
+  transform: translateY(0);
+}
+
+/* Gallery modal styles */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.gallery-modal.active {
+  display: flex;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 60px auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* Image viewer styles */
+.image-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1002;
+}
+
+.image-viewer.active {
+  display: flex;
+}
+
+.close-viewer {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#expanded-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Blur effect when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* body.modal-open .portfolio-container {
+  filter: blur(5px);
+  pointer-events: none;
+} */
