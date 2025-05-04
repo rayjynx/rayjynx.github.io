@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <h1>Get In Touch</h1>
+        <div class="contact-grid">
+            <!-- Email -->
+            <a href="mailto:rxrawlin@gmail.com" class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p>rxrawlin@gmail.com</p>
+            </a>
+
+            <!-- Discord -->
+            <div class="contact-card" onclick="copyDiscord()">
+                <div class="contact-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3>Discord</h3>
+                <p id="discord-username">eaglecommitswarcrimes</p>
+                <span class="copy-message">Click to copy</span>
+            </div>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/rayjynx" target="_blank" class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3>Instagram</h3>
+                <p>@rayjynx</p>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/rxrawlin" target="_blank" class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <h3>Twitter/X (not really active there)</h3>
+                <p>@rxrawlin</p>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>

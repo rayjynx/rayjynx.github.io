@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
@@ -8,74 +12,72 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="">About Me</a></li>
-            <li><a href="">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- >>> START: New Wrapper for content to be blurred -->
+        <nav class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
 
-
-    <header>
-        <h1>3D Art:</h1>
-    </header>
-    <!-- <div class="images">
-        <div class="3dart-content">
-            <img src="images/3dart/magpul_render_wire.png" alt="">
+        <div class="header-container">
+            <header>
+                <h1>3D Art:</h1>
+            </header>
         </div>
-    </div> -->
-    
-
-    <div class="container">
-        <h1>My Portfolio</h1>
-        <div class="grid-container">
-            <!-- Portfolio Item 1 -->
-            <div class="portfolio-item">
-                <div class="item-content">
-                    <img src="images/3dart/magpul_render_wire.png" alt="Project 1" class="item-image">
-                    <div class="item-overlay">
-                        <h3>Magpul MOE Stock</h3>
-                        <p>Click to view gallery</p>
+        
+        
+        <div class="portfolio-container">
+            <h1>My Portfolio</h1>
+            <div class="grid-container">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item">
+                    <div class="item-content">
+                        <img src="images/3dart/magpul_Render1.png" alt="Project 1" class="item-image">
+                        <div class="item-overlay">
+                            <h3>Magpul MOE Stock</h3>
+                            <p>Game asset</p>
+                            <br>
+                            <p>Click to view gallery</p>
+                        </div>
+                    </div>
+                    <!-- Hidden gallery -->
+                    <div class="gallery-modal">
+                        <span class="close-modal">&times;</span>
+                        <div class="gallery-grid">
+                            <img src="images/3dart/magpul_Render3.png" alt="Project 1 Image 1">
+                            <img src="images/3dart/magpul_render_wire.png" alt="Project 1 Image 2">
+                            <img src="images/3dart/Render2.png" alt="Project 1 Image 3">
+                            <img src="images/3dart/magpul_Render1.png" alt="Project 1 Image 4">
+                        </div>
                     </div>
                 </div>
-                <!-- Hidden gallery -->
-                <div class="gallery-modal">
-                    <span class="close-modal">&times;</span>
-                    <div class="gallery-grid">
-                        <img src="images/3dart/magpul_Render1.png" alt="Project 1 Image 1">
-                        <img src="images/3dart/magpul_Render3.png" alt="Project 1 Image 2">
-                        <img src="images/3dart/Render2.png" alt="Project 1 Image 3">
-                        <img src="images/3dart/magpul_render_wire.png" alt="Project 1 Image 4">
+                
+                <!-- Portfolio Item 2 -->
+                <!-- <div class="portfolio-item">
+                    <div class="item-content">
+                        <img src="cover2.jpg" alt="Project 2" class="item-image">
+                        <div class="item-overlay">
+                            <h3>Project 2</h3>
+                            <p>Click to view gallery</p>
+                        </div>
                     </div>
-                </div>
+                    <div class="gallery-modal">
+                        <span class="close-modal">&times;</span>
+                        <div class="gallery-grid">
+                            <img src="project2/image1.jpg" alt="Project 2 Image 1">
+                            <img src="project2/image2.jpg" alt="Project 2 Image 2">
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- Add more portfolio items as needed -->
             </div>
-            
-            <!-- Portfolio Item 2 -->
-            <div class="portfolio-item">
-                <div class="item-content">
-                    <img src="cover2.jpg" alt="Project 2" class="item-image">
-                    <div class="item-overlay">
-                        <h3>Project 2</h3>
-                        <p>Click to view gallery</p>
-                    </div>
-                </div>
-                <!-- Hidden gallery -->
-                <div class="gallery-modal">
-                    <span class="close-modal">&times;</span>
-                    <div class="gallery-grid">
-                        <img src="project2/image1.jpg" alt="Project 2 Image 1">
-                        <img src="project2/image2.jpg" alt="Project 2 Image 2">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Add more portfolio items as needed -->
         </div>
-    </div>
-    
+
     <!-- Image viewer modal -->
     <div class="image-viewer">
         <span class="close-viewer">&times;</span>

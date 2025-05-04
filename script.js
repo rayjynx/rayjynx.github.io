@@ -1,11 +1,23 @@
+// menu bar script
 function toggleMenu() {
     const navbar = document.querySelector('.navbar');
     navbar.classList.toggle('active');
 }
 
+// contact.html
+function copyDiscord() {
+    const discordText = document.getElementById('discord-username').textContent;
+    navigator.clipboard.writeText(discordText).then(() => {
+        const message = document.querySelector('.copy-message');
+        message.textContent = 'Copied!';
+        setTimeout(() => {
+            message.textContent = 'Click to copy';
+        }, 2000);
+    });
+}
+
+// portfolio.html
 document.addEventListener('DOMContentLoaded', function() {
-    
- 
     // Open gallery modal when portfolio item is clicked
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     
