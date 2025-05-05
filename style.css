@@ -489,7 +489,7 @@ hr{
 
 .blog-post-list li a:hover {
    color: cadetblue; /* Hover color */
-   text-decoration: underline; /* Add underline on hover */
+   text-decoration: none;
 }
 
 
@@ -646,4 +646,14 @@ code[class*="language-"] {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 0.9em;
   line-height: 1.5;
+}
+
+.backlink a {
+  text-decoration: underline;
+  color: white;
+}
+
+.backlink a:hover{
+  text-decoration: underline;
+  color: cadetblue;
 }

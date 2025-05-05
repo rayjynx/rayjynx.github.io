@@ -92,20 +92,28 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchBlogPosts();
     }
     
+    // Replace with this updated version
     async function fetchBlogPosts() {
         try {
-            const response = await fetch('blog/index.json');
+            const response = await fetch('/api/fetch-blog');
             
             if (!response.ok) {
-                throw new Error('Failed to fetch blog posts');
+                // Fallback to static JSON if API fails (optional)
+                const staticResponse = await fetch('blog/index.json');
+                if (!staticResponse.ok) throw new Error('Both API and static fetch failed');
+                const posts = await staticResponse.json();
+                displayBlogPosts(posts);
+                return;
             }
             
             const posts = await response.json();
             displayBlogPosts(posts);
         } catch (error) {
-            console.error('Error fetching blog posts:', error);
+            console.error('Error:', error);
             const errorMessage = document.createElement('li');
-            errorMessage.textContent = 'Error loading blog posts. Please try again later.';
+            errorMessage.textContent = 'Error loading blog posts. Please refresh.';
+            errorMessage.style.color = '#ff6b6b';
+            const blogContainer = document.getElementById('blog-posts-container');
             blogContainer.innerHTML = '';
             blogContainer.appendChild(errorMessage);
         }
@@ -132,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }) : '';
             
             postElement.innerHTML = `
-                <a href="blog/${post.slug}.html">
+                <a href="blog/${post.slug}">
                     <h3 class="blog-post-title">${post.title}</h3>
                     <p class="blog-post-meta">Posted on ${formattedDate}</p>
                     ${post.tags.length > 0 ? `<p class="blog-post-tags">Tags: ${post.tags.join(', ')}</p>` : ''}
