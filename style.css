@@ -518,6 +518,7 @@ hr{
   margin-top: 3rem; /* Add spacing above the post content */
   line-height: 1.6; /* Improve readability */
   font-size: 1.1rem; /* Slightly larger text */
+  padding: 0 1.5rem;
 }
 
 .blog-post-content h1 {
@@ -657,3 +658,28 @@ code[class*="language-"] {
   text-decoration: underline;
   color: cadetblue;
 }
+
+/* --- SECTION FOR BLOG IMAGE GRID --- */
+.blog-image-grid {
+  display: grid;
+  /* Arrange in columns, auto-fitting as many as possible with a minimum width */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax width as needed */
+  gap: 15px; /* Space between images */
+  margin: 1.5rem 0; /* Space above/below the grid */
+  /* To center the grid within the content area,
+     make the grid a block element and use margin: auto,
+     but it's often easier if it naturally fills its container width */
+  /* Optional: background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; */
+}
+
+/* Style images *within* the grid */
+.blog-image-grid img {
+  width: 100%; /* Make images fill their grid cell */
+  height: auto; /* Maintain aspect ratio */
+  /* Inherit or set object-fit, contain matches your existing style */
+  object-fit: contain;
+  display: block; /* Ensure margin: auto works if centering individual images */
+  margin: 0 auto; /* Center image within its grid cell */
+  border-radius: 4px; /* Optional: slight rounding */
+}
+/* -------------------------------------------- */
