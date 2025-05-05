@@ -4,6 +4,7 @@ function toggleMenu() {
     navbar.classList.toggle('active');
 }
 
+
 // contact.html
 function copyDiscord() {
     const discordText = document.getElementById('discord-username').textContent;

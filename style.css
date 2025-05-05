@@ -443,3 +443,178 @@ hr{
       padding: 1.5rem;
   }
 } 
+
+/* --- Blog Specific Styles --- */
+
+/* Container for the blog index section on index.html */
+.blog-index-section {
+  margin-top: 3rem; /* Space below the HR */
+}
+
+.blog-index-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid white; /* Match your contact h1 style */
+  padding-bottom: 0.5rem;
+  display: inline-block; /* Fit border to text */
+  width: auto; /* Allow inline-block width */
+  margin-left: auto; /* Center inline-block */
+  margin-right: auto; /* Center inline-block */
+}
+
+/* Style for the list of blog posts */
+.blog-post-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.blog-post-list li {
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.03); /* Slight background */
+  transition: background 0.3s ease;
+}
+
+.blog-post-list li:hover {
+  background: rgba(255, 255, 255, 0.07); /* Slightly more visible on hover */
+}
+
+.blog-post-list li a {
+   color: white; /* Link color */
+   text-decoration: none; /* Remove underline */
+}
+
+.blog-post-list li a:hover {
+   color: cadetblue; /* Hover color */
+   text-decoration: underline; /* Add underline on hover */
+}
+
+
+.blog-post-list h3.blog-post-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.blog-post-list p.blog-post-meta {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7); /* Dimmer text for meta info */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-list p.blog-post-tags {
+   font-size: 0.8rem;
+   color: cadetblue;
+   margin-top: 0.5rem;
+}
+
+
+/* Styles for the content within individual blog post pages */
+.blog-post-content {
+  margin-top: 3rem; /* Add spacing above the post content */
+  line-height: 1.6; /* Improve readability */
+  font-size: 1.1rem; /* Slightly larger text */
+}
+
+.blog-post-content h1 {
+  margin-bottom: 0.5em;
+  border-bottom: 3px solid white; /* Match your contact h1 */
+  padding-bottom: 0.5rem;
+  display: inline-block; /* Fit border to text */
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-post-content h2 {
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  font-size: 1.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+  padding-bottom: 0.3em;
+}
+
+.blog-post-content h3 {
+   margin-top: 1.5em;
+   margin-bottom: 0.6em;
+   font-size: 1.3rem;
+}
+
+.blog-post-content p {
+  margin-bottom: 1.2em;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  margin-bottom: 1.2em;
+  padding-left: 30px; /* Indent lists */
+}
+
+.blog-post-content li {
+   margin-bottom: 0.6em;
+   line-height: 1.5;
+}
+
+.blog-post-content code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.blog-post-content pre {
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto; /* Add horizontal scroll for code blocks */
+  margin-bottom: 1.2em;
+}
+
+.blog-post-content pre code {
+  background-color: transparent; /* Code inside pre should not have background */
+  padding: 0;
+}
+
+.blog-post-content blockquote {
+  border-left: 4px solid cadetblue;
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.2em;
+}
+
+.blog-post-content hr {
+  margin: 2em auto; /* Space around HR within content */
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments for blog content */
+@media screen and (max-width: 768px) {
+  .blog-post-content {
+      margin-top: 2rem;
+      font-size: 1rem;
+  }
+
+   .blog-post-list li {
+       padding: 1rem;
+       margin-bottom: 1rem;
+   }
+
+  .blog-post-list h3.blog-post-title {
+      font-size: 1.2rem;
+  }
+
+   .blog-post-content h1 {
+       font-size: 1.8rem;
+   }
+
+   .blog-post-content h2 {
+       font-size: 1.4rem;
+   }
+}
