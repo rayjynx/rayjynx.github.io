@@ -1,0 +1,14 @@
+{
+    "name": "your-website-scripts",
+    "version": "1.0.0",
+    "description": "Scripts for generating blog posts from Notion",
+    "main": "scripts/generate-blog.js",
+    "scripts": {
+      "generate-blog": "node scripts/generate-blog.js"
+    },
+    "dependencies": {
+      "@notionhq/client": "^2.2.13",
+      "notion-to-md": "^3.0.1",
+      "markdown-it": "^13.0.1"
+    }
+  }
