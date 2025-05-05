@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }) : '';
             
             postElement.innerHTML = `
-                <a href="blog/${post.slug}">
+                <a href="blog/${post.slug}.html">
                     <h3 class="blog-post-title">${post.title}</h3>
                     <p class="blog-post-meta">Posted on ${formattedDate}</p>
                     ${post.tags.length > 0 ? `<p class="blog-post-tags">Tags: ${post.tags.join(', ')}</p>` : ''}
