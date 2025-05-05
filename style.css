@@ -519,6 +519,7 @@ hr{
   line-height: 1.6; /* Improve readability */
   font-size: 1.1rem; /* Slightly larger text */
   padding: 0 1.5rem;
+  text-align: left;
 }
 
 .blog-post-content h1 {
