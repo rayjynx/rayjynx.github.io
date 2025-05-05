@@ -18,6 +18,9 @@ on:
   # schedule:
   #   - cron: '0 8 * * *'
 
+permissions: # <<< ADD THIS BLOCK
+  contents: write # <<< THIS GRANTS WRITE PERMISSION TO THE GITHUB_TOKEN
+
 jobs:
   sync-blog:
     runs-on: ubuntu-latest
