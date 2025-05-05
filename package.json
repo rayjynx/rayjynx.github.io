@@ -1,14 +1,10 @@
 {
-    "name": "your-website-scripts",
+    "name": "your-portfolio",
     "version": "1.0.0",
-    "description": "Scripts for generating blog posts from Notion",
-    "main": "scripts/generate-blog.js",
     "scripts": {
-      "generate-blog": "node scripts/generate-blog.js"
+      "generate-blog": "node fetch-blog.js"
     },
     "dependencies": {
-      "@notionhq/client": "^2.2.13",
-      "notion-to-md": "^3.0.1",
-      "markdown-it": "^13.0.1"
+      "@notionhq/client": "^2.2.3"
     }
   }
