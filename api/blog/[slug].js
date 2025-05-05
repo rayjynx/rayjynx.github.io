@@ -90,7 +90,23 @@ module.exports = async (req, res) => {
 
         // 3. Convert blocks to Markdown using notion-to-md
         const mdblocks = await n2m.blocksToMarkdown(blocks);
-        const markdown = n2m.toMarkdownString(mdblocks);
+        
+        // Manually construct the markdown string to handle potential issues in mdblocks
+        let markdown = '';
+        if (Array.isArray(mdblocks)) {
+             // Filter out any elements that are not objects or do not have a 'parent' property
+             // Then map to the 'parent' property and join with newlines
+             markdown = mdblocks
+                 .filter(block => block && typeof block === 'object' && typeof block.parent === 'string')
+                 .map(block => block.parent)
+                 .join('\n');
+        } else {
+             // This case should ideally not happen if blocksResponse is successful,
+             // but adding logging/handling can help debug if mdblocks is something unexpected.
+             console.error("Unexpected type for mdblocks:", typeof mdblocks, mdblocks);
+             // Decide how to handle this - maybe set markdown to an empty string or throw a specific error
+             markdown = ''; // Set to empty string to avoid errors downstream
+        }
 
         // 4. Convert Markdown to HTML using marked (NO SANITIZATION)
         const postContentHtml = marked.parse(markdown);
