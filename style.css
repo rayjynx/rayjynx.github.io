@@ -618,3 +618,32 @@ hr{
        font-size: 1.4rem;
    }
 }
+
+.blog-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.post-content img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Syntax highlighting for code blocks */
+pre[class*="language-"] {
+  position: relative;
+  padding: 1.5em !important;
+  margin: 1.5em 0;
+  overflow: auto;
+  border-radius: 8px;
+}
+
+code[class*="language-"] {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+}

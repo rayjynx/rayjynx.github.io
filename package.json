@@ -2,9 +2,23 @@
     "name": "your-portfolio",
     "version": "1.0.0",
     "scripts": {
-      "generate-blog": "node fetch-blog.js"
+        "generate-blog": "node fetch-blog.js"
     },
     "dependencies": {
-      "@notionhq/client": "^2.2.3"
-    }
-  }
+        "@notionhq/client": "^2.3.0",
+        "dotenv": "^16.5.0",
+        "marked": "^15.0.11"
+    },
+    "description": "none",
+    "main": "fetch-blog.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rayjynx/rayjynx.github.io.git"
+    },
+    "author": "rayjynx",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rayjynx/rayjynx.github.io/issues"
+    },
+    "homepage": "https://github.com/rayjynx/rayjynx.github.io#readme"
+}

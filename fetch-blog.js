@@ -1,11 +1,67 @@
-// fetch-blog.js - This will be used during development to generate static files
+require('dotenv').config(); // Load .env
 const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked'); // Add this package for Markdown conversion
 
 // Initialize Notion client
-const notion = new Client({ auth: 'your_notion_integration_token' });
-const DATABASE_ID = 'your_notion_database_id';
+const notion = new Client({ auth: process.env.NOTION_TOKEN });
+const DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+// Function to convert Notion blocks to HTML
+async function convertBlocksToHtml(blocks) {
+    let html = '';
+    
+    for (const block of blocks) {
+        switch (block.type) {
+            case 'paragraph':
+                html += `<p>${convertRichText(block.paragraph.rich_text)}</p>`;
+                break;
+            case 'heading_1':
+                html += `<h2>${convertRichText(block.heading_1.rich_text)}</h2>`;
+                break;
+            case 'heading_2':
+                html += `<h3>${convertRichText(block.heading_2.rich_text)}</h3>`;
+                break;
+            case 'heading_3':
+                html += `<h4>${convertRichText(block.heading_3.rich_text)}</h4>`;
+                break;
+            case 'bulleted_list_item':
+                html += `<li>${convertRichText(block.bulleted_list_item.rich_text)}</li>`;
+                break;
+            case 'numbered_list_item':
+                html += `<li>${convertRichText(block.numbered_list_item.rich_text)}</li>`;
+                break;
+            case 'code':
+                html += `<pre><code class="language-${block.code.language}">${block.code.rich_text[0]?.plain_text || ''}</code></pre>`;
+                break;
+            case 'image':
+                const imageUrl = block.image.type === 'external' ? block.image.external.url : block.image.file.url;
+                html += `<img src="${imageUrl}" alt="${block.image.caption?.[0]?.plain_text || ''}" class="blog-image">`;
+                break;
+            case 'quote':
+                html += `<blockquote>${convertRichText(block.quote.rich_text)}</blockquote>`;
+                break;
+            case 'divider':
+                html += '<hr>';
+                break;
+            // Add more block types as needed
+        }
+    }
+    
+    return html;
+}
+
+function convertRichText(richTextArray) {
+    return richTextArray.map(text => {
+        let content = text.plain_text;
+        if (text.annotations.bold) content = `<strong>${content}</strong>`;
+        if (text.annotations.italic) content = `<em>${content}</em>`;
+        if (text.annotations.code) content = `<code>${content}</code>`;
+        if (text.href) content = `<a href="${text.href}">${content}</a>`;
+        return content;
+    }).join('');
+}
 
 async function fetchAndGenerateBlog() {
     try {
@@ -33,7 +89,7 @@ async function fetchAndGenerateBlog() {
         // Generate index data file
         const indexData = response.results.map(post => {
             const title = post.properties.Title?.title[0]?.plain_text || 'Untitled';
-            const slug = post.properties.Slug?.rich_text[0]?.plain_text || '';
+            const slug = post.properties.Slug?.rich_text[0]?.plain_text || generateSlug(title);
             const date = post.properties.Date?.date?.start || '';
             const tags = post.properties.Tags?.multi_select?.map(tag => tag.name) || [];
             
@@ -50,7 +106,7 @@ async function fetchAndGenerateBlog() {
         // Generate individual post files
         for (const post of response.results) {
             const title = post.properties.Title?.title[0]?.plain_text || 'Untitled';
-            const slug = post.properties.Slug?.rich_text[0]?.plain_text || '';
+            const slug = post.properties.Slug?.rich_text[0]?.plain_text || generateSlug(title);
             const date = post.properties.Date?.date?.start || '';
             const tags = post.properties.Tags?.multi_select?.map(tag => tag.name) || [];
             
@@ -59,14 +115,8 @@ async function fetchAndGenerateBlog() {
                 block_id: post.id
             });
             
-            // Convert blocks to HTML (simplified - you might want a proper converter)
-            let content = '';
-            for (const block of blocks.results) {
-                if (block.type === 'paragraph') {
-                    content += `<p>${block.paragraph.rich_text[0]?.plain_text || ''}</p>`;
-                }
-                // Add more block types as needed
-            }
+            // Convert blocks to HTML
+            const content = await convertBlocksToHtml(blocks.results);
             
             const postHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -121,4 +171,11 @@ async function fetchAndGenerateBlog() {
     }
 }
 
-fetchAndGenerateBlog();
+function generateSlug(title) {
+    return title.toLowerCase()
+        .replace(/[^\w\s-]/g, '') // Remove non-word characters
+        .replace(/\s+/g, '-')     // Replace spaces with hyphens
+        .replace(/--+/g, '-');     // Replace multiple hyphens with single
+}
+
+fetchAndGenerateBlog(); 
