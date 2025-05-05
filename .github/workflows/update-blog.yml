@@ -20,8 +20,8 @@ jobs:
 
       - name: Generate blog
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          NOTION_TOKEN: ${{ secrets.NOTION_API_KEY }}
+          DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: npm run generate-blog
 
       - name: Commit changes
