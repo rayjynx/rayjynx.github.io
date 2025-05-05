@@ -55,4 +55,4 @@ jobs:
           # For pushing to main/master/docs branch, simple push is usually fine
           git push origin HEAD
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided automatically
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
