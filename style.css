@@ -11,22 +11,21 @@ html {
   min-height: 100vh;
 }
 
-body{
+/* test */
+body {
   min-height: 100vh;
   box-sizing: border-box;
   margin: 0 auto;
-  /* padding: 1.5%; */
   background-color: black;
   color: white;
-  max-width: min(80ch, 100%);
+  max-width: min(80ch, calc(100% - (100vw - 100%))); /* Account for scrollbar */
   padding: 1.5rem;
-  /* Shadow effect */
-  box-shadow: 0 0 30px rgb(0, 0, 0), /* Blueish glow */
-  0 0 60px rgb(0, 0, 0); /* Larger subtle glow */
-  position: relative; /* Needed for z-index */
-  z-index: 999; /* Ensures shadow appears above background */
-
+  box-shadow: 0 0 30px rgb(0, 0, 0),
+              0 0 60px rgb(0, 0, 0);
+  position: relative;
+  z-index: 999;
 }
+
 
   /* .navbar ul{              backup
     list-style-type: none;
