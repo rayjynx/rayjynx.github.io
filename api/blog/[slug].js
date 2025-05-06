@@ -177,7 +177,7 @@ module.exports = async (req, res) => {
                     </ul>
                 </nav>
 
-                <main class="container">
+                <main class="blog-container">
                     <div class="blog-post-container">
                         <h1>${postTitle}</h1>
                          <p class="blog-post-meta">Posted on ${postDate}</p>

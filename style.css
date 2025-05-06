@@ -9,16 +9,18 @@ html {
   background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
   background-size: 20px 20px;
   min-height: 100vh;
+  overflow-y: scroll;
 }
 
 /* test */
 body {
+  /* Rest of your existing styles */
   min-height: 100vh;
   box-sizing: border-box;
   margin: 0 auto;
   background-color: black;
   color: white;
-  max-width: min(80ch, calc(100% - (100vw - 100%))); /* Account for scrollbar */
+  max-width: min(80ch, 100%);
   padding: 1.5rem;
   box-shadow: 0 0 30px rgb(0, 0, 0),
               0 0 60px rgb(0, 0, 0);
@@ -102,6 +104,13 @@ body {
   margin: 10rem 0;
 }
 
+.blog-container{
+  /* text-align: center;
+  margin: auto;  
+  overflow: hidden; */
+  text-align: center;
+  margin: 3rem 0;
+}
 
 
 .para p{
