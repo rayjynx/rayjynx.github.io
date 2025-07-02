@@ -7,9 +7,13 @@ body.portfolio-body {
 }
 
 body.portfolio-body .navbar {
-    max-width: min(80ch, 100%);
-    margin-left: auto;
-    margin-right: auto;
+  padding-left: 3rem !important;  /* Increased from 1.5rem */
+  padding-right: 3rem !important; /* Increased from 1.5rem */
+}
+
+body.portfolio-body .navbar ul {
+    max-width: 100% !important;
+    margin: 0 !important;
 }
 
 /* Ensure content expands to new body width */
@@ -63,11 +67,11 @@ body.portfolio-body .navbar {
     transform: scaleX(1);
 }
 
-.portfolio-container {
+/* .portfolio-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem 3rem;
-}
+} */
 
 .portfolio-project {
     background: rgba(255, 255, 255, 0.03);
