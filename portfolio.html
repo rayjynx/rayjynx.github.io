@@ -9,80 +9,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
-<body>
-        <nav class="navbar">
-            <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+<body class="portfolio-body">
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div class="header-container">
-            <header>
-                <h1>3D Art:</h1>
-            </header>
-        </div>
-        
-        
-        <div class="portfolio-container">
-            <h1>My Portfolio</h1>
-            <div class="grid-container">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item">
-                    <div class="item-content">
-                        <img src="images/3dart/magpul_Render1.png" alt="Project 1" class="item-image">
-                        <div class="item-overlay">
-                            <h3>Magpul MOE Stock</h3>
-                            <p>Game asset</p>
-                            <br>
-                            <p>Click to view gallery</p>
-                        </div>
+    <div class="portfolio-header">
+        <h1>3D Art Portfolio</h1>
+        <p class="portfolio-subtitle">A collection of my 3D modeling and rendering projects.</p>
+        <p class="commission-cta">Interested in commissions? <a href="contact.html">Contact me</a> to discuss your project!</p>
+    </div>
+    
+    <main class="portfolio-container">
+        <!-- Project 1 -->
+        <section class="portfolio-project">
+            <div class="project-header">
+                <h2>Magpul MOE Stock</h2>
+                <div class="project-meta">
+                    <span class="project-year">2025</span>
+                    <span class="project-tag">Game Asset</span>
+                    <span class="project-tag">Weapon Components</span>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-gallery">
+                    <div class="main-image">
+                        <img src="images/3dart/magpul_Render1.png" alt="Magpul MOE Stock Render" class="gallery-image active">
                     </div>
-                    <!-- Hidden gallery -->
-                    <div class="gallery-modal">
-                        <span class="close-modal">&times;</span>
-                        <div class="gallery-grid">
-                            <img src="images/3dart/magpul_Render3.png" alt="Project 1 Image 1">
-                            <img src="images/3dart/magpul_render_wire.png" alt="Project 1 Image 2">
-                            <img src="images/3dart/Render2.png" alt="Project 1 Image 3">
-                            <img src="images/3dart/magpul_Render1.png" alt="Project 1 Image 4">
-                        </div>
+                    <div class="thumbnail-grid">
+                        <img src="images/3dart/magpul_Render1.png" alt="Thumbnail 1" class="thumbnail active">
+                        <img src="images/3dart/magpul_Render3.png" alt="Thumbnail 2" class="thumbnail">
+                        <img src="images/3dart/magpul_render_wire.png" alt="Thumbnail 3" class="thumbnail">
+                        <img src="images/3dart/Render2.png" alt="Thumbnail 4" class="thumbnail">
                     </div>
                 </div>
                 
-                <!-- Portfolio Item 2 -->
-                <!-- <div class="portfolio-item">
-                    <div class="item-content">
-                        <img src="cover2.jpg" alt="Project 2" class="item-image">
-                        <div class="item-overlay">
-                            <h3>Project 2</h3>
-                            <p>Click to view gallery</p>
-                        </div>
+                <div class="project-details">
+                    <div class="project-description">
+                        <h3>Description</h3>
+                        <p>A highly detailed 3D model of the Magpul MOE stock, created for use in first-person shooter games. The model includes accurate dimensions and details based on reference images of the real-world product.</p>
+                        <p>The texturing includes realistic wear patterns and material definition to match the polymer construction of the actual stock.</p>
                     </div>
-                    <div class="gallery-modal">
-                        <span class="close-modal">&times;</span>
-                        <div class="gallery-grid">
-                            <img src="project2/image1.jpg" alt="Project 2 Image 1">
-                            <img src="project2/image2.jpg" alt="Project 2 Image 2">
-                        </div>
+                    
+                    <div class="project-specs">
+                        <h3>Technical Specifications</h3>
+                        <ul>
+                            <li><strong>Software:</strong> Autodesk Maya, Substance Painter, Marmoset Toolbag 4</li>
+                            <li><strong>Polygons:</strong> 2,500 tris</li>
+                            <li><strong>Textures:</strong> 4K PBR (Albedo, Normal, Roughness, Metalness)</li>
+                            <li><strong>UV Maps:</strong> 1 UV channel</li>
+                            <li><strong>Rendered with:</strong> Marmoset Toolbag 4</li>
+                        </ul>
                     </div>
-                </div> -->
-                
-                <!-- Add more portfolio items as needed -->
+                </div>
             </div>
-        </div>
+        </section>
+        
+        <!-- Project 2 (Keyboard) -->
+        <section class="portfolio-project">
+            <div class="project-header">
+                <h2>Royal Kludge N80 Low Profile Keyboard</h2>
+                <div class="project-meta">
+                    <span class="project-year">2025</span>
+                    <span class="project-tag">Product Render</span>
+                    <span class="project-tag">Computer Components</span>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-gallery">
+                    <div class="main-image">
+                        <img src="images/3dart/n80_side.png" alt="Project 2 Render" class="gallery-image active">
+                    </div>
+                    <div class="thumbnail-grid">
+                        <img src="images/3dart/n80_side.png" alt="Thumbnail 1" class="thumbnail active">
+                        <img src="images/3dart/n80_front.png" alt="Thumbnail 2" class="thumbnail">
+                        <img src="images/3dart/n80_top.png" alt="Thumbnail 2" class="thumbnail">
+                        <img src="images/3dart/n80_logo.png" alt="Thumbnail 2" class="thumbnail">
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="project-description">
+                        <h3>Description</h3>
+                        <p>A RK N80 keyboard modeled to precision in Plasticity 3D CAD software, textured in Photoshop and Rendered in Blender.</p>
+                    </div>
+                    
+                    <div class="project-specs">
+                        <h3>Technical Specifications</h3>
+                        <ul>
+                            <li><strong>Software:</strong> Plasticity 3D, Blender, Adobe Photoshop</li>
+                            <li><strong>Polygons:</strong> 200k+</li>
+                            <li><strong>Textures:</strong> 2 texture sets for labels and keycap icons</li>
+                            <li><strong>Rendered with:</strong> Blender</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Image viewer modal -->
     <div class="image-viewer">
         <span class="close-viewer">&times;</span>
         <img id="expanded-image" src="" alt="Expanded View">
     </div>
 
     <script src="script.js"></script>
-    
+    <script src="portfolio.js"></script>
 </body>
 </html>
