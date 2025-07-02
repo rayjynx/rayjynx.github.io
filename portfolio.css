@@ -337,10 +337,10 @@ body.portfolio-body .navbar ul {
 
 @media screen and (max-width: 600px) {
     /* Wider page container */
-    body {
-        max-width: 94% !important;
-        padding-left: 3% !important;
-        padding-right: 3% !important;
+
+    body.portfolio-body .navbar {
+        padding-left: 1.5rem !important;  /* back to 1.5rem */
+        padding-right: 1.5rem !important; 
     }
 
     /* Original technical specs layout */
