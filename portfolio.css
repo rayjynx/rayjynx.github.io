@@ -79,11 +79,10 @@ body.portfolio-body .navbar ul {
 }
 
 
-/* NEW PORTFOLIO GRID 
-*/
+/* NEW PORTFOLIO GRID  */
 .portfolio-grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for all screen sizes */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 0;
     max-width: none;
@@ -110,7 +109,7 @@ body.portfolio-body .navbar ul {
 .portfolio-card img {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 10; /* Gives a nice rectangular shape */
+    aspect-ratio: 16 / 10;
     object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
@@ -146,8 +145,7 @@ body.portfolio-body .navbar ul {
 }
 
 
-/* NEW MODAL STYLES 
-*/
+/* --- MODAL STYLES --- */
 .portfolio-modal {
     position: fixed;
     top: 0;
@@ -155,28 +153,64 @@ body.portfolio-body .navbar ul {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
-    display: none; /* Hidden by default */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     padding: 1.5rem;
     box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
+/* Show modal with fade in */
 .portfolio-modal.active {
-    display: flex; /* Shown with JS */
+    display: flex;
+    opacity: 1;
+}
+
+/* Fade-and-scale animation for modal content */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Apply animation when modal becomes active */
+.portfolio-modal.active .modal-content {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Class used temporarily before closing for fade-out */
+.portfolio-modal.closing .modal-content {
+  animation: modalFadeOut 0.2s ease-in forwards;
 }
 
 .modal-content {
     position: relative;
-    background: #1a1a1a; /* Slightly lighter than pure black */
+    background: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     width: 100%;
     max-width: 1100px;
     max-height: 90vh;
     overflow-y: auto;
-    /* Custom scrollbar for webkit */
     scrollbar-width: thin;
     scrollbar-color: cadetblue #1a1a1a;
 }
@@ -192,7 +226,6 @@ body.portfolio-body .navbar ul {
     border-radius: 4px;
 }
 
-
 .close-modal {
     position: absolute;
     top: 15px;
@@ -201,9 +234,8 @@ body.portfolio-body .navbar ul {
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001; /* Above modal content */
+    z-index: 1001;
 }
-
 
 .portfolio-project-modal-view {
     padding: 2.5rem;
@@ -382,6 +414,7 @@ body.portfolio-body .navbar ul {
 }
 
 
+/* --- IMAGE VIEWER --- */
 .image-viewer {
     position: fixed;
     top: 0;
@@ -411,6 +444,7 @@ body.portfolio-body .navbar ul {
 }
 
 
+/* --- RESPONSIVE --- */
 @media screen and (max-width: 900px) {
     .portfolio-project-modal-view .project-content {
         grid-template-columns: 1fr;
@@ -420,32 +454,19 @@ body.portfolio-body .navbar ul {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
-
-@media screen and (max-width: 900px) {
-    /* This rule now PERFECTLY handles the modal content layout on tablets/phones */
-    .portfolio-project-modal-view .project-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-project-modal-view .thumbnail-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 
 @media screen and (max-width: 600px) {
     .portfolio-card img {
-        aspect-ratio: 1 / 1; /* Make card images square */
+        aspect-ratio: 1 / 1;
     }
     .card-overlay {
-        padding: 0.8rem; /* Tweak padding */
+        padding: 0.8rem;
     }
     .card-overlay h3 {
-        font-size: 0.9rem; /* Smaller title on mobile */
+        font-size: 0.9rem;
     }
     .card-overlay .card-tags {
-        font-size: 0.75rem; /* Smaller tags on mobile */
+        font-size: 0.75rem;
     }
 
     body.portfolio-body .navbar {
@@ -453,27 +474,25 @@ body.portfolio-body .navbar ul {
         padding-right: 0 !important; 
     }
 
-    /* Adjust grid gap for smaller screens */
     .portfolio-grid-container {
         gap: 1rem;
     }
 
-    /* Make modal content padding smaller on mobile */
     .portfolio-project-modal-view {
         padding: 1.5rem;
     }
+
     .modal-content {
-        padding: 0; /* Let the section inside handle padding */
+        padding: 0;
         max-height: 95vh;
     }
+
     .close-modal {
         top: 5px;
         right: 15px;
         font-size: 30px;
     }
 
-
-    /* Keep your existing spec layout for mobile */
     .portfolio-project-modal-view .project-specs ul {
         grid-template-columns: 1fr;
     }
@@ -500,6 +519,6 @@ body.portfolio-body .navbar ul {
     }
 
     .navbar {
-    padding: 0; /* Removes horizontal padding on mobile */
-  }
+        padding: 0;
+    }
 }
