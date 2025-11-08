@@ -3,6 +3,6 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/blog/:slug"
-  to = "/.netlify/functions/blog-post?slug=:slug"
+  from = "/blog/*"
+  to = "/.netlify/functions/blog-post?slug=:splat"
   status = 200
