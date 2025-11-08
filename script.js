@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Replace with this updated version
     async function fetchBlogPosts() {
         try {
-            const response = await fetch('/.netlify/functions/fetch-blog')
+            const response = await fetch('/netlify/functions/fetch-blog')
             
             if (!response.ok) {
                 // Fallback to static JSON if API fails (optional)
